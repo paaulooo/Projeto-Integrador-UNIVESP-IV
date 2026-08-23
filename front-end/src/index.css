@@ -1,0 +1,21 @@
+:root {
+  --fundo: #F9F9F9;
+  --borda: #D9D9D9;
+  --cor-secundaria: #3A4F75;
+  --alerta-falta: #A31013;
+  --aviso-caixa: #FEF4CC;
+  --aviso-fonte: #7F6D34;
+  --falta: #CD203C;
+  --presenca: #32D89F;
+  --cor-confimar: ;
+  --botao-salvar: #176FF6;
+  --cor-janela-modais: #4C4B4B;
+
+
+
+
+  background: var(--fundo);
+  font-family: Arial, Helvetica, sans-serif;
+
+
+}
