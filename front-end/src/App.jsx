@@ -1,17 +1,30 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
-
+import  {MenuPrincipal}  from './menu/MenuPrincipal'
+import  {MenuLateral}  from './menu/MenuLateral'
+import {AreaFrequencia} from './elements/AreaFrequencia'
+import Aviso from "./assets/Aviso.svg"
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <p>
-        Estou aqui
-      </p>
+      <section>
+        <MenuPrincipal/>
+        <div>
+          <MenuLateral/>
+          <div>
+            <span>
+              <img src={Aviso}/>
+              Aviso!
+            </span>
+            <p>
+              O prazo ara lançamento de frequência para o seu perfil, será de até 8 dias corridos
+            </p>
+          </div>
+          <AreaFrequencia/>
+        </div>
+      </section>
+
     </>
   )
 }
