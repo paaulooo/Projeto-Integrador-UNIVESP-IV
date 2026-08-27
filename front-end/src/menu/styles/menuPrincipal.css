@@ -1,0 +1,14 @@
+.menu-list{
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-bt{
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.nomeServidor{
+    display: inline-flex;
+    align-items: center;
+}
