@@ -1,0 +1,27 @@
+.wrapperAreaFrequencia{
+  display: flex;
+  width: 100%;
+}
+
+.wrapperFrequencia{
+  margin-top: 1rem;
+  width: 100%;
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+}
+.wapperAviso{
+  width: 98%;
+  padding: .5rem;
+  margin-bottom: .5rem;
+  background-color: var(--aviso-caixa);
+  color: var(--aviso-fonte)
+}
+.wapperAviso > span{
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+.wapperAviso > p{
+  
+}

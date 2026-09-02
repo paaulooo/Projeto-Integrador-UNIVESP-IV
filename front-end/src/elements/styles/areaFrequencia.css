@@ -1,0 +1,102 @@
+
+
+.containerAreaFrequencia{
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    border-left: 1px solid #D9D9D9;
+}
+.wrapperMarcarFrequencia{
+    display: inline-flex;
+    justify-content: space-around;
+}
+.labelCheckbox{
+    display: flex;
+    align-items: center;
+    color: var(--cor-secundaria);
+    font-size: 12px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.wapperDivListAula{
+
+}
+.wrapperAluno{
+    margin-left: .4rem;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid var(--cor-secundaria);
+background: #FFF;
+}
+.wrapperAluno > li{
+    color: var(--cor-secundaria);
+
+}
+.wrapperAluno > li:nth-child(2){
+    width: 50%;
+}
+.wrapperBtnSalvar{
+    display: flex;
+    justify-content: center;
+}
+.btnSalvar{
+    display: flex;
+width: 522px;
+height: 49px;
+margin-top: 1rem;
+justify-content: center;
+align-items: center;
+border-radius: 20px;
+background-color: var(--botao-salvar);
+text-align: center;
+font-size: 25px;
+color: #FFF;
+font-weight: 600;
+
+}
+.btnSalvar > svg{
+    margin-left: .5rem;
+}
+.marcacao{
+    display: flex;
+    align-items: center;
+}
+.falta{
+    display: flex;
+width: 20px;
+height: 20px;
+padding: 10px;
+margin: 0 .5rem 0 .5rem;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 50px;
+background: var(--falta);
+color: #FFF;
+font-family: Inter;
+text-align: center;
+font-size: 12px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+}
+.comparecimento{
+    display: flex;
+width: 20px;
+height: 20px;
+padding: 10px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 50px;
+background: var(--presenca);
+color: #FFF;
+font-family: Inter;
+text-align: center;
+font-size: 12px;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+}

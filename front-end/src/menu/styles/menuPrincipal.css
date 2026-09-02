@@ -1,0 +1,39 @@
+.menu-list{
+    height: 63px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.list-bt{
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
+.nomeServidor{
+    display: inline-flex;
+    align-items: center;
+    margin-right: .5rem;
+}
+.btn-police{
+   
+}
+.btn-police > li{
+    display: flex;
+    width: 220px;
+    align-items: center;
+    justify-content: center;
+     border-radius: 20px;
+    background: var(--alerta-falta);
+    color: #FFF;
+text-align: center;
+font-family: Arial;
+font-size: 18px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+padding: .8rem;
+}
+.btn-police > li > img{
+    margin-right: .5rem;
+}

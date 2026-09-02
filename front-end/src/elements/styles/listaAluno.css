@@ -1,0 +1,67 @@
+
+.listaAluno{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+        border-radius: 8px;
+    margin: .5rem 0 0 .5rem;
+background: #FFF;
+box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+}
+.sequeciaNumericaChamada{
+    padding: 1rem;
+    background-color: var(--cor-secundaria);
+    border-radius:  8px 0 0 8px ;
+    color: #FFF;
+text-align: center;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+    
+
+}
+.wrapper-ativoN-falta{
+    display: flex;
+    justify-content: left;
+    width: 100%;
+    margin-top: .5rem;
+    
+}
+.wrapper-ativoN-falta > svg{
+    margin-right: .3rem;
+}
+.faltasAluno{
+    text-align: center;
+font-family: Arial;
+font-size: 9px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: capitalize;
+margin-left: 1rem;
+}
+.faltasAluno > svg{
+    margin-right: .3rem;
+}
+.alunoAtivoouNao{
+    text-align: center;
+font-family: Arial;
+font-size: 9px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: capitalize;
+}
+.nomeAluno{
+    
+    text-transform: uppercase;
+    width: 60%;
+    margin-right: .5rem;
+}
+.presenca{
+    margin-right: 1.5rem;
+}
+.mensagem{
+    margin: 0 2rem;
+}
