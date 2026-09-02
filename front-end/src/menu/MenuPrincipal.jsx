@@ -20,7 +20,7 @@ export function MenuPrincipal (){
                         Perfil Professor
                     </li>
                 </ul>
-                <ul className="bt-police">
+                <ul className="btn-police">
                     <li>
                         <img src={ChapeuPolice}/>
                         Acionar Policia
