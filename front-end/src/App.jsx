@@ -2,7 +2,10 @@ import { useState } from 'react'
 import  {MenuPrincipal}  from './menu/MenuPrincipal'
 import  {MenuLateral}  from './menu/MenuLateral'
 import {AreaFrequencia} from './elements/AreaFrequencia'
+import { Footer } from './elements/Footer'
 import Aviso from "./assets/Aviso.svg"
+import "./app.css"
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -10,9 +13,11 @@ function App() {
     <>
       <section>
         <MenuPrincipal/>
-        <div>
+        <div className='wrapperAreaFrequencia'>
           <MenuLateral/>
-          <div>
+          <div className='wrapperFrequencia'>
+            <div className='wapperAviso'>
+
             <span>
               <img src={Aviso}/>
               Aviso!
@@ -20,11 +25,12 @@ function App() {
             <p>
               O prazo ara lançamento de frequência para o seu perfil, será de até 8 dias corridos
             </p>
-          </div>
+            </div>
           <AreaFrequencia/>
+          </div>
         </div>
       </section>
-
+      <Footer />
     </>
   )
 }
