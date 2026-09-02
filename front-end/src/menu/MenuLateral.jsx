@@ -1,3 +1,4 @@
+import "./styles/menuLateral.css"
 
 export function MenuLateral (){
     return(
@@ -5,8 +6,8 @@ export function MenuLateral (){
         <section>
             <menu>
                 <ul>
-                    <li></li>
-                    <li></li>
+                    <li className="lateralUm"></li>
+                    <li className="lateralDois"></li>
                 </ul>
             </menu>
         </section>
