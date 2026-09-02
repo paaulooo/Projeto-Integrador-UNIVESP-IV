@@ -5,3 +5,12 @@ menu, ul{
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration: none;
+}
+input, fieldset, button{
+    border: none;
+}
+button{
+    background: none;
+}
