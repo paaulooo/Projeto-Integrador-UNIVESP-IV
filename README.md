@@ -28,7 +28,7 @@ Antes de começar, certifique-se de ter instalado em sua máquina:
 ├── frontend/      # Interface do usuário (React)
 └── README.md      # Documentação do projeto
 
-### 💻 Rodando Backend e o Frontend
+```
 
 ### 💻 Rodando o Backend e o Frontend
 
