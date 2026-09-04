@@ -38,7 +38,7 @@ git clone [https://github.com/paaulooo/Projeto-Integrador-UNIVESP-IV.git](https:
 cd Projeto-Integrador-UNIVESP-IV
 
 # 2. Configurar e rodar o Backend
-cd backend
+cd back_end
 
 # Criar e ativar o ambiente virtual (Windows)
 python -m venv venv
@@ -58,7 +58,7 @@ uvicorn main:app --reload
 # ------------------------------------------------------------------
 
 # Navegar até a pasta do projeto e entrar no frontend
-cd Projeto-Integrador-UNIVESP-IV/vite-project
+cd front-end
 
 # Instalar as dependências do Node
 npm install
