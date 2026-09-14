@@ -1,6 +1,6 @@
 from datetime import date
 
-from sqlalchemy import Date, ForeignKey, Integer, String
+from sqlalchemy import Date, ForeignKey, Integer, String, Float
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database import Base
@@ -14,6 +14,9 @@ class Aluno(Base):
     data_nascimento: Mapped[date] = mapped_column(Date, nullable=False)
     matricula: Mapped[str] = mapped_column(String(20), nullable=False, unique=True)
     sala_id: Mapped[int] = mapped_column(Integer, ForeignKey("salas.id"), nullable=False)
+    faltas: Mapped[int] = mapped_column(Integer, default=0)
+    perc_presenca: Mapped[float] = mapped_column(Float, default=0.0)
+    
 
     sala = relationship("Sala", back_populates="alunos")
     responsaveis = relationship("Responsavel", secondary=aluno_responsavel, back_populates="alunos")

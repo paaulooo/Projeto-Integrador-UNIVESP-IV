@@ -9,7 +9,10 @@ from app import models  # noqa: F401 - garante que os models sejam registrados n
 from app.api.alunosController import router as alunos_router
 from app.api.responsaveisController import router as responsaveis_router
 from app.api.salasController import router as salas_router
-from app.database import Base, engine
+from app.database import Base, engine, sync_tables
+from app.models.sala import Sala
+from app.models.aluno import Aluno
+from app.models.responsavel import Responsavel
 
 load_dotenv()
 
@@ -36,3 +39,6 @@ app.include_router(alunos_router)
 app.include_router(responsaveis_router)
 
 
+sync_tables(Sala, engine)
+sync_tables(Aluno, engine)    
+sync_tables(Responsavel, engine)       
