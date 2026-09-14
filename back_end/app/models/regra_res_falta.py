@@ -15,8 +15,8 @@ def regra_perc_falta(registros: list[dict], dias: int = 30, lim: float = 0.025) 
     inicio: date = hoje - timedelta(days=dias)
     
     recentes = [r for r in registros if r['data'] >= inicio]
-    if not recentes: return RegraRes("percentual_faltas", False, 0.0, "Nenhum registro encontrado.")
-    faltas: int = sum(1 for r in recentes if not r["presente"] or r["justificada"])
+    if not recentes: return RegraRes("percentual_faltas", False, 0.0, "Nenhum registro encontrado.", data_ocorrida=hoje)
+    faltas: int = sum(1 for r in recentes if not r["presente"] and not r["justificada"])
     percentual = faltas / len(recentes)
     
     return RegraRes(
@@ -30,21 +30,23 @@ def regra_perc_falta(registros: list[dict], dias: int = 30, lim: float = 0.025) 
 def regra_faltas_consecutivas(registros: list[dict], lim: int = 3) -> RegraRes:
     # Dispara se o aluno tiver K ou mais faltas seguidas
     ordenados = sorted(registros, key=lambda r: r["data"])
-    
+    if not ordenados: return RegraRes("faltas_consecutivas", False, 0.0, "Nenhum registro encontrado.", data_ocorrida=date.today())
+
     sequencia_atual = 0
     maior_sequencia = 0
-    
+
     for r in ordenados:
         if not r["presente"] and not r["justificada"]:
             sequencia_atual += 1
         else:
             maior_sequencia = max(maior_sequencia, sequencia_atual)
             sequencia_atual = 0
+    maior_sequencia = max(maior_sequencia, sequencia_atual)
 
     return RegraRes(
         nome="faltas_consecutivas",
         disparada=(maior_sequencia >= lim),
-        peso=maior_sequencia >= lim,
+        peso=float(maior_sequencia),
         detalhe=f"{maior_sequencia} faltas consecutivas",
         data_ocorrida=max(r["data"] for r in ordenados)
     )
