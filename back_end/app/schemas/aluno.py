@@ -8,8 +8,8 @@ class AlunoBase(BaseModel):
     data_nascimento: date
     matricula: str
     sala_id: int
-    faltas: int
-    perc_presenca: float
+    faltas: int = 0
+    perc_presenca: float = 100.0
 
 
 class AlunoCreate(AlunoBase):

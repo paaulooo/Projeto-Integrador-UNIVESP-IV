@@ -20,3 +20,4 @@ class Aluno(Base):
 
     sala = relationship("Sala", back_populates="alunos")
     responsaveis = relationship("Responsavel", secondary=aluno_responsavel, back_populates="alunos")
+    registros_faltas = relationship("Falta", back_populates="aluno")
