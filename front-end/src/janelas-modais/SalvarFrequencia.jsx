@@ -1,9 +1,15 @@
-import Salvar from '../assets/Salvar.svg'
+
+
+import {AreaFrequencia} from "../elements/AreaFrequencia"
+import SalvarEnviar from '../assets/SalvarEnviar.svg'
+import "./styles/salvarFrequencia.css"
 export function SalvarFrequencia (){
+     
     return(
         <>
-            <section>
-                <div>
+            <section className='containerSalvarFrequencia'>
+                <div className='wrapperSalvarFrequencia'>
+                    <div>
                     <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56" fill="none">
                         <circle cx="28" cy="28" r="25.5" stroke="#519F76" stroke-width="5"/>
                         <line x1="12.0781" y1="25.9012" x2="21.1687" y2="38.4008" stroke="#519F76" stroke-width="6" stroke-linecap="round"/>
@@ -33,10 +39,12 @@ export function SalvarFrequencia (){
                     </button>
                     <button>
                         Salvar e Enviar
-                        <img src={Salvar} />
+                        <img src={SalvarEnviar} />
                     </button>
 
                 </div>
+                </div>
+                
             </section>
 
         </>

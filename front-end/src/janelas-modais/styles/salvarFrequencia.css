@@ -1,0 +1,10 @@
+
+.containerSalvarFrequencia{
+    width: 100%;
+    
+}
+
+.wrapperSalvarFrequencia{
+    display: flex;
+    flex-direction: column;
+}
