@@ -1,0 +1,110 @@
+.salvarFrequenciaOverlay{
+	position: fixed;
+	inset: 0;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 1rem;
+	background: rgba(0, 0, 0, 0.45);
+}
+
+.salvarFrequenciaModal{
+	width: min(32rem, 100%);
+	padding: 2rem;
+	border-radius: 8px;
+	background: #fff;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+.alertaFrequência{
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
+.alertaFrequência > h2{
+	color: var(--font-modelSave);
+}
+.alunosAtivos, .presençasAlunos, .faltasAlunos, .MesagensAuto, .avisoSalvarEnviar {
+	color: #727272;
+text-align: center;
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.avisoSalvarEnviar{
+	background-color: var(--aviso-caixa);
+	color: var(--aviso-fonte);
+font-family: Arial;
+font-size: 10px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: uppercase;
+padding: .8rem;
+border-radius: 5px;
+}
+.avisoSalvarEnviar > span{
+	font-weight: 900;
+	text-transform: uppercase;
+}
+.bnt-areaSave{
+	display: flex;
+	justify-content: space-around;
+}
+.btn-cancelarSalveChamada{
+	display: flex;
+width: 130px;
+height: 45px;
+padding: 10px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 20px;
+border: 1px solid var(--cor-secundaria);
+color: var(--cor-secundaria);
+	text-align: center;
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+.btn-SalvarChamada{
+	display: flex;
+width: 130px;
+height: 45px;
+padding: 10px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 20px;
+background-color: var(--botao-salvar);
+	color: #fff;
+	text-align: center;
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+
+}
+.btn-salvarEnviar{
+	display: flex;
+width: 177px;
+height: 45px;
+padding: 11px 10px 10px 10px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 20px;
+	background-color: var(--btn-salvarEnviar);
+	color: #fff;
+	text-align: center;
+font-family: Inter;
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}

@@ -20,7 +20,7 @@
 }
 .btn-police > li{
     display: flex;
-    width: 220px;
+    width: 200px;
     align-items: center;
     justify-content: center;
      border-radius: 20px;
@@ -32,7 +32,7 @@ font-size: 18px;
 font-style: normal;
 font-weight: 700;
 line-height: normal;
-padding: .8rem;
+padding: .5rem;
 }
 .btn-police > li > img{
     margin-right: .5rem;

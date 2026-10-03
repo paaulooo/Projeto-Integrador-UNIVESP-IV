@@ -1,0 +1,18 @@
+.box-aviso{
+    background-color: var(--aviso-caixa);
+    color: var(--aviso-fonte);
+    border-radius: 5px;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: lowercase;
+    padding: .3rem;
+    width: 550px;
+    margin-bottom: .3rem;
+    margin-left: 3rem;
+}
+.box-aviso > span{
+    text-transform: uppercase;
+    font-weight: 700;
+}

@@ -10,8 +10,8 @@
   --cor-confimar: ;
   --botao-salvar: #176FF6;
   --cor-janela-modais: #4C4B4B;
-
-
+  --btn-salvarEnviar: #2FC06D;
+  --font-modelSave: #519F76;
 
 
   background: var(--fundo);

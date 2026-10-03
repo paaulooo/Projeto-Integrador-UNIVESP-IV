@@ -62,13 +62,14 @@ font-weight: 600;
 .marcacao{
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    width: 35%;
 }
 .falta{
     display: flex;
 width: 20px;
 height: 20px;
 padding: 10px;
-margin: 0 .5rem 0 .5rem;
 justify-content: center;
 align-items: center;
 gap: 10px;
