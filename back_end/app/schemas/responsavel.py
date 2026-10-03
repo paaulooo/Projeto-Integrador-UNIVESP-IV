@@ -6,6 +6,7 @@ class ResponsavelBase(BaseModel):
     telefone: str
     email: str
     parentesco: str
+    whatsapp_apikey: str | None = None
 
 
 class ResponsavelCreate(ResponsavelBase):

@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 from app import models  # noqa: F401 - garante que os models sejam registrados no metadata
 from app.api.alunosController import router as alunos_router
 from app.api.faltasController import router as faltas_router
+from app.api.mensagensController import router as mensagens_router
 from app.api.responsaveisController import router as responsaveis_router
 from app.api.salasController import router as salas_router
 from app.database import Base, engine, sync_tables
@@ -40,6 +41,7 @@ app.include_router(salas_router)
 app.include_router(alunos_router)
 app.include_router(responsaveis_router)
 app.include_router(faltas_router)
+app.include_router(mensagens_router)
 
 
 Base.metadata.create_all(bind=engine)
