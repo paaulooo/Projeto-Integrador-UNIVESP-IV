@@ -11,5 +11,12 @@ export const getAlunos = async () => {
   const response = await api.get('/alunos');
   return response.data;
 }
-
+export const getFaltas = async () => {
+  const response = await api.get('/faltas');
+  return response.data;
+}
+export const getResponsaveis = async () => {
+  const response = await api.get('/responsaveis/');
+  return response.data;
+}
 export default api
