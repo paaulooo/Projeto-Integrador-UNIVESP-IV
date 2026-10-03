@@ -1,25 +1,36 @@
 
 .listaAluno{
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap; 
     align-items: center;
-        border-radius: 8px;
+    border-radius: 8px;
     margin: .5rem 0 0 .5rem;
-background: #FFF;
-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+    background: #FFF;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
+    position: relative;
 }
-.sequeciaNumericaChamada{
-    padding: 1rem;
-    background-color: var(--cor-secundaria);
-    border-radius:  8px 0 0 8px ;
-    color: #FFF;
-text-align: center;
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-    
 
+.sequeciaNumericaChamada{
+   padding: 1rem;
+    background-color: var(--cor-secundaria);
+    border-radius: 8px 0 0 8px;
+    color: #FFF;
+    text-align: center;
+    font-size: 12px;
+    align-self: stretch;       
+    display: flex;             
+    align-items: center;       
+    justify-content: center;
+
+}
+.sequeciaNumericaChamada--alerta{
+    background-color: var(--alerta-falta);
+    position: absolute;
+    height: 66%;
+}
+.sequeciaNumericaChamada--alerta ~ .nomeAluno{
+    position: relative;
+    margin: .3rem 0 .3rem 3rem;
 }
 .wrapper-ativoN-falta{
     display: flex;
@@ -54,14 +65,23 @@ line-height: normal;
 text-transform: capitalize;
 }
 .nomeAluno{
-    
+  display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
     text-transform: uppercase;
-    width: 60%;
-    margin-right: .5rem;
+    flex: 1; 
+    margin-left: 0.5rem;
+    max-width: 65%;
 }
 .presenca{
     margin-right: 1.5rem;
 }
 .mensagem{
     margin: 0 2rem;
+}
+.li-avisoMsg{
+    width: 90%;
+    flex-basis: 100%;
+    display: flex;
 }
