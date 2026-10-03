@@ -23,7 +23,7 @@ function App() {
               Aviso!
             </span>
             <p>
-              O prazo ara lançamento de frequência para o seu perfil, será de até 8 dias corridos
+              O prazo para lançamento de frequência para o seu perfil, será de até 8 dias corridos
             </p>
             </div>
           <AreaFrequencia/>
