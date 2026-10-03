@@ -1,10 +1,17 @@
 import { useEffect, useState } from "react";
 import { ListaAluno } from "./ListaAluno"
+import { SalvarFrequencia } from "../janelas-modais/SalvarFrequencia"
 import Api from "../Api"
 import "./styles/areaFrequencia.css"
+
+const ordenarAlunosPorNome = (lista) => [...lista].sort((alunoA, alunoB) => (
+    (alunoA.nome || "").localeCompare(alunoB.nome || "", "pt-BR", { sensitivity: "base" })
+))
+
 export function AreaFrequencia(){
    const[isModalOpen, setIsModelOpen] = useState(false)
     const [alunos, setAlunos] = useState([])
+    const [isSalvarModalOpen, setIsSalvarModalOpen] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
 
@@ -13,8 +20,23 @@ export function AreaFrequencia(){
         setError("")
 
         try {
-            const response = await Api.get('/alunos')
-            setAlunos(response.data?.alunos || [])
+            const [alunosResponse, responsaveisResponse] = await Promise.all([
+                Api.get('/alunos'),
+                Api.get('/responsaveis/')
+            ])
+            const listaAlunos = Array.isArray(alunosResponse.data)
+                ? alunosResponse.data
+                : alunosResponse.data?.alunos || []
+            const responsaveis = Array.isArray(responsaveisResponse.data)
+                ? responsaveisResponse.data
+                : []
+            const alunosComResponsavel = listaAlunos.map((aluno) => ({
+                ...aluno,
+                responsavel: aluno.responsavel || responsaveis.find((responsavel) => (
+                    responsavel.aluno_ids?.includes(aluno.id)
+                ))?.nome
+            }))
+            setAlunos(ordenarAlunosPorNome(alunosComResponsavel))
         } catch (err) {
             const status = err?.response?.status
             const detail = err?.response?.data?.detail
@@ -31,7 +53,7 @@ export function AreaFrequencia(){
 
     const handleCreated = (novoAluno) => {
         if (novoAluno) {
-            setAlunos((prev) => [novoAluno, ...prev])
+            setAlunos((prev) => ordenarAlunosPorNome([novoAluno, ...prev]))
         } else {
             loadAlunos()
         }
@@ -45,11 +67,11 @@ export function AreaFrequencia(){
                         <input type="checkbox" name="replicar-frequencia" />
                         Replicar frequência
                     </label>
-                    <p className="marcacao">
+                    <div className="marcacao">
                         Marcar todos como:
                         <span className="falta">F</span>
                         <span className="comparecimento">C</span>
-                    </p>
+                    </div>
                 </div>
                 <div className="wapperDivListAula">
                     <ul className="wrapperAluno">
@@ -67,8 +89,8 @@ export function AreaFrequencia(){
                         {alunos.length === 0 ? (
                         <p>Nenhum aluno cadastrado ainda.</p>
                     ) : (
-                        alunos.map((alunos) => (
-                            <ListaAluno key={alunos.id} alunos={alunos} />
+                        alunos.map((alunos, index) => (
+                            <ListaAluno key={alunos.id} alunos={alunos} numero={index + 1} />
                         ))
                     )}
 
@@ -77,7 +99,7 @@ export function AreaFrequencia(){
                 </div>
                 <div className="wrapperBtnSalvar">
 
-                <button className="btnSalvar">
+                <button className="btnSalvar" type="button" onClick={() => setIsSalvarModalOpen(true)}>
                     Salvar
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
                         <path d="M2.5 20.5V6.5C2.5 5.39543 3.39543 4.5 4.5 4.5H15.6716C16.202 4.5 16.7107 4.71071 17.0858 5.08579L19.9142 7.91421C20.2893 8.28929 20.5 8.79799 20.5 9.32843V20.5C20.5 21.6046 19.6046 22.5 18.5 22.5H4.5C3.39543 22.5 2.5 21.6046 2.5 20.5Z" fill="#D9D9D9" stroke="white" stroke-width="1.5"/>
@@ -87,6 +109,9 @@ export function AreaFrequencia(){
                 </button>
                 </div>
             </section>
+            {isSalvarModalOpen && (
+                <SalvarFrequencia onClose={() => setIsSalvarModalOpen(false)} />
+            )}
         </>
     )
 }
