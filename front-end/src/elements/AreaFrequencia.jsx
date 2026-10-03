@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { ListaAluno } from "./ListaAluno"
 import { SalvarFrequencia } from "../janelas-modais/SalvarFrequencia"
-import Api from "../Api"
+import Api, { salvarFrequenciaDoDia } from "../Api"
+import { diaUtilAtualISO } from "../utils/data"
 import "./styles/areaFrequencia.css"
 
 const ordenarAlunosPorNome = (lista) => [...lista].sort((alunoA, alunoB) => (
@@ -11,6 +12,7 @@ const ordenarAlunosPorNome = (lista) => [...lista].sort((alunoA, alunoB) => (
 export function AreaFrequencia(){
    const[isModalOpen, setIsModelOpen] = useState(false)
     const [alunos, setAlunos] = useState([])
+    const [presencas, setPresencas] = useState({})
     const [isSalvarModalOpen, setIsSalvarModalOpen] = useState(false)
     const [loading, setLoading] = useState(false)
     const [error, setError] = useState("")
@@ -36,7 +38,9 @@ export function AreaFrequencia(){
                     responsavel.aluno_ids?.includes(aluno.id)
                 ))?.nome
             }))
-            setAlunos(ordenarAlunosPorNome(alunosComResponsavel))
+            const listaOrdenada = ordenarAlunosPorNome(alunosComResponsavel)
+            setAlunos(listaOrdenada)
+            setPresencas(Object.fromEntries(listaOrdenada.map((aluno) => [aluno.id, true])))
         } catch (err) {
             const status = err?.response?.status
             const detail = err?.response?.data?.detail
@@ -54,11 +58,28 @@ export function AreaFrequencia(){
     const handleCreated = (novoAluno) => {
         if (novoAluno) {
             setAlunos((prev) => ordenarAlunosPorNome([novoAluno, ...prev]))
+            setPresencas((prev) => ({ ...prev, [novoAluno.id]: true }))
         } else {
             loadAlunos()
         }
         setIsModelOpen(false)
     }
+
+    const alternarPresenca = (alunoId) => {
+        setPresencas((prev) => ({ ...prev, [alunoId]: !prev[alunoId] }))
+    }
+
+    const salvarFrequencia = async () => {
+        const data = diaUtilAtualISO()
+        const registros = alunos.map((aluno) => ({
+            aluno_id: aluno.id,
+            data,
+            presente: presencas[aluno.id] ?? true,
+            justificada: false,
+        }))
+        await salvarFrequenciaDoDia(registros)
+    }
+
     return(
         <>
             <section className="containerAreaFrequencia">
@@ -89,8 +110,14 @@ export function AreaFrequencia(){
                         {alunos.length === 0 ? (
                         <p>Nenhum aluno cadastrado ainda.</p>
                     ) : (
-                        alunos.map((alunos, index) => (
-                            <ListaAluno key={alunos.id} alunos={alunos} numero={index + 1} />
+                        alunos.map((aluno, index) => (
+                            <ListaAluno
+                                key={aluno.id}
+                                alunos={aluno}
+                                numero={index + 1}
+                                compareceu={presencas[aluno.id] ?? true}
+                                onAlternarPresenca={alternarPresenca}
+                            />
                         ))
                     )}
 
@@ -110,7 +137,12 @@ export function AreaFrequencia(){
                 </div>
             </section>
             {isSalvarModalOpen && (
-                <SalvarFrequencia onClose={() => setIsSalvarModalOpen(false)} />
+                <SalvarFrequencia
+                    onClose={() => setIsSalvarModalOpen(false)}
+                    alunos={alunos}
+                    presencas={presencas}
+                    onSalvar={salvarFrequencia}
+                />
             )}
         </>
     )
