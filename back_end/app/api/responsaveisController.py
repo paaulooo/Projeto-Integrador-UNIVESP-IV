@@ -23,6 +23,7 @@ def _to_read(responsavel: Responsavel) -> ResponsavelRead:
         telefone=responsavel.telefone,
         email=responsavel.email,
         parentesco=responsavel.parentesco,
+        whatsapp_apikey=responsavel.whatsapp_apikey,
         aluno_ids=[aluno.id for aluno in responsavel.alunos],
     )
 
@@ -35,6 +36,7 @@ def create_responsavel(responsavel: ResponsavelCreate, db: Session = Depends(get
         telefone=responsavel.telefone,
         email=responsavel.email,
         parentesco=responsavel.parentesco,
+        whatsapp_apikey=responsavel.whatsapp_apikey,
         alunos=alunos,
     )
     db.add(db_responsavel)
@@ -68,6 +70,7 @@ def update_responsavel(
     responsavel.telefone = responsavel_update.telefone
     responsavel.email = responsavel_update.email
     responsavel.parentesco = responsavel_update.parentesco
+    responsavel.whatsapp_apikey = responsavel_update.whatsapp_apikey
     responsavel.alunos = alunos
     db.commit()
     db.refresh(responsavel)

@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aviso de falta</title>
+  </head>
+  <body style="margin:0; padding:0; background-color:#eceff3; font-family:Arial, Helvetica, sans-serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#eceff3; padding:24px 0;">
+      <tr>
+        <td align="center">
+          <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border-radius:8px; overflow:hidden; max-width:600px; width:100%;">
+
+            <!-- Header -->
+            <tr>
+              <td align="center" style="background-color:#1F2A44; padding:36px 24px;">
+                <table role="presentation" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" valign="middle" style="width:64px; height:64px; border-radius:50%; background-color:#2C3C63; font-family:Georgia, 'Times New Roman', serif; font-size:26px; font-weight:bold; color:#c7d3e8;">
+                      {{ escola_nome[:1] }}
+                    </td>
+                  </tr>
+                </table>
+                <p style="margin:12px 0 0; color:#9fb0cc; font-size:14px; letter-spacing:1px; text-transform:uppercase;">
+                  {{ escola_nome }}
+                </p>
+              </td>
+            </tr>
+
+            <!-- Body -->
+            <tr>
+              <td style="padding:40px 32px;">
+                <h1 style="margin:0 0 24px; color:#1F2A44; font-size:22px; text-align:center;">
+                  {{ titulo }}: {{ aluno_nome }}
+                </h1>
+
+                <p style="margin:0 0 24px; color:#4a5568; font-size:15px; line-height:1.6; text-align:center;">
+                  {{ mensagem }}
+                </p>
+
+                {% if observacao %}
+                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:0 0 24px; background-color:#f4f6fb; border-left:3px solid #2C3C63; border-radius:4px;">
+                  <tr>
+                    <td style="padding:14px 18px;">
+                      <p style="margin:0 0 4px; color:#1F2A44; font-size:12px; font-weight:bold; text-transform:uppercase; letter-spacing:0.5px;">
+                        Observação do(a) professor(a)
+                      </p>
+                      <p style="margin:0; color:#4a5568; font-size:14px; line-height:1.5;">
+                        {{ observacao }}
+                      </p>
+                    </td>
+                  </tr>
+                </table>
+                {% endif %}
+
+                <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+                  <tr>
+                    <td align="center" style="border-radius:24px; background-color:#1F2A44;">
+                      <a href="{{ portal_url }}" style="display:inline-block; padding:14px 28px; color:#ffffff; font-size:15px; font-weight:bold; text-decoration:none; border-radius:24px;">
+                        Justificar falta
+                      </a>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td align="center" style="background-color:#1F2A44; padding:28px 24px;">
+                <table role="presentation" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" valign="middle" style="width:48px; height:48px; border-radius:50%; background-color:#2C3C63;">
+                      <table role="presentation" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td style="width:16px; height:16px; border-radius:50%; border:2px solid #c7d3e8; font-size:0; line-height:0;">&nbsp;</td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+                <p style="margin:12px 0 0; color:#9fb0cc; font-size:12px; line-height:1.5;">
+                  Esta é uma mensagem automática, não é necessário responder este email.<br />
+                  {{ escola_nome }}
+                </p>
+              </td>
+            </tr>
+
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
