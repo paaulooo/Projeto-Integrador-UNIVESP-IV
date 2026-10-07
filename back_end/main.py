@@ -16,6 +16,7 @@ from app.models.aluno import Aluno
 from app.models.falta import Falta
 from app.models.responsavel import Responsavel
 
+
 load_dotenv()
 
 origins = os.getenv("ALLOWED_ORIGINS", "").split(",")

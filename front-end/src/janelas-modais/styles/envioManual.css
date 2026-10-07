@@ -14,6 +14,12 @@
 	border-radius: 8px;
 	background: #fff;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+	width: 40%;
+}
+.envioManualModal > div > svg{
+	display: flex;
+	justify-content: center;
+    width: 100%;
 }
 .envioManualModal > div > h3{
 	color: var(--cor-secundaria);
@@ -52,6 +58,7 @@ line-height: normal;
 .wrapperEnviarMsg{
 	display: flex;
 	justify-content: space-around;
+	margin-top: .5rem;
 }
 .btn-cancelarEnvio{
 	display: flex;

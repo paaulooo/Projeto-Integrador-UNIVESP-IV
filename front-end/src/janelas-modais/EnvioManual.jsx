@@ -6,6 +6,11 @@ export function EnvioManual({ aluno, onClose }){
         <div className="envioManualOverlay" onClick={onClose}>
             <section className="envioManualModal" onClick={(event) => event.stopPropagation()}>
                 <div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="72" height="67" viewBox="0 0 72 67" fill="none">
+  <rect x="1.5" y="1.5" width="69" height="64" rx="32" stroke="#47765D" stroke-width="3"/>
+  <path d="M21 23.0001L32.3667 32.7429C34.3223 34.419 37.0111 34.419 38.9667 32.7429L50.3333 23" stroke="#47765D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M49.2346 19H23.6543C21.6361 19 20 20.8548 20 23.1429V43.8571C20 46.1452 21.6361 48 23.6543 48H49.2346C51.2528 48 52.8889 46.1452 52.8889 43.8571V23.1429C52.8889 20.8548 51.2528 19 49.2346 19Z" stroke="#47765D" stroke-width="3" stroke-linecap="round"/>
+</svg>
                     <h3>Enviar mensagem para o responsável</h3>
                     <h5><span>Aluno(a):</span> {aluno?.nome}</h5>
                 </div>
