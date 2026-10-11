@@ -63,8 +63,8 @@ def montar_mensagem_falta(
             "essencial para o seu desempenho escolar."
         )
         acao = (
-            "Entre em contato com a escola ou anexe a justificativa no Sala do Futuro "
-            "o quanto antes para regularizar a situação."
+            "Pedimos que entre em contato com a escola ou anexe a justificativa no Sala "
+            "do Futuro o quanto antes para regularizar a situação."
         )
     elif faltas_total >= 1:
         titulo = "Aviso de falta"
@@ -74,8 +74,9 @@ def montar_mensagem_falta(
             "sem justificativa."
         )
         acao = (
-            "Caso haja uma justificativa para o não comparecimento, envie o comprovante "
-            "diretamente pelo aplicativo Sala do Futuro para atualização da frequência."
+            "Caso haja uma justificativa para o não comparecimento, por favor, envie o "
+            "comprovante diretamente pelo aplicativo Sala do Futuro para atualização da "
+            "frequência."
         )
     else:
         titulo = "Contato da escola"
