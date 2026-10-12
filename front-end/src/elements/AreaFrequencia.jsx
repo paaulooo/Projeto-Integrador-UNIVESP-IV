@@ -69,7 +69,7 @@ export function AreaFrequencia(){
         setPresencas((prev) => ({ ...prev, [alunoId]: !prev[alunoId] }))
     }
 
-    const salvarFrequencia = async () => {
+    const salvarFrequencia = async (enviarMensagens = false) => {
         const data = diaUtilAtualISO()
         const registros = alunos.map((aluno) => ({
             aluno_id: aluno.id,
@@ -77,7 +77,7 @@ export function AreaFrequencia(){
             presente: presencas[aluno.id] ?? true,
             justificada: false,
         }))
-        await salvarFrequenciaDoDia(registros)
+        await salvarFrequenciaDoDia(registros, enviarMensagens)
     }
 
     return(
