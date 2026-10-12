@@ -1,20 +1,29 @@
-import { useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { MensagensEnviar } from "../elements/MensagensEnviar"
 import { enviarMensagemManual } from "../Api"
 import "./styles/envioManual.css"
 
-export function EnvioManual({ aluno, onClose }){
-    const [observacao, setObservacao] = useState("")
+export function EnvioManual({ aluno, faltouHoje = false, onClose }){
+    const [mensagemDigitada, setMensagemDigitada] = useState("")
     const [enviando, setEnviando] = useState(false)
     const [erro, setErro] = useState("")
     const [resultado, setResultado] = useState(null)
+    const fechamentoTimer = useRef(null)
+
+    useEffect(() => () => {
+        if (fechamentoTimer.current) {
+            clearTimeout(fechamentoTimer.current)
+        }
+    }, [])
 
     const handleEnviar = async () => {
         setEnviando(true)
         setErro("")
         try {
-            const resposta = await enviarMensagemManual(aluno.id, observacao.trim())
+            const resposta = await enviarMensagemManual(aluno.id, mensagemDigitada.trim())
             setResultado(resposta)
+            fechamentoTimer.current = setTimeout(onClose, 2000)
+           
         } catch (err) {
             const detail = err?.response?.data?.detail
             setErro(detail || err?.message || "Erro ao enviar mensagem.")
@@ -38,21 +47,27 @@ export function EnvioManual({ aluno, onClose }){
                 <div className="containerMsg">
                     <h3>Mensagem prévia para o responsável do Aluno:</h3>
 
-                        <MensagensEnviar aluno={aluno}/>
+                        <MensagensEnviar aluno={aluno} faltouHoje={faltouHoje}/>
+                        {mensagemDigitada.trim() ? (
+                            <p className="msg-observacao">
+                                <strong>Observação do(a) professor(a):</strong>{" "}
+                                {mensagemDigitada.trim()}
+                            </p>
+                        ) : null}
 
                 </div>
                 <div className="containerMsgDigitada">
                     <h3>Adicionar Observação:</h3>
 
-                    <label htmlFor="mensagem">Caso queira enviar alguma mensagem sobre o aluno para seu responsável</label>
+                    <label htmlFor="mensagemDigitada">Caso queira enviar alguma mensagem sobre o aluno para seu responsável</label>
                     <textarea
-                        id="mensagem"
-                        name="mensagem"
+                        id="mensagemDigitada"
+                        name="mensagemDigitada"
                         rows="4"
                         cols="50"
                         placeholder="Digite aqui"
-                        value={observacao}
-                        onChange={(event) => setObservacao(event.target.value)}
+                        value={mensagemDigitada}
+                        onChange={(event) => setMensagemDigitada(event.target.value)}
                         disabled={enviando}
                     />
 
