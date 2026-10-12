@@ -68,7 +68,11 @@ export function ListaAluno({alunos, numero, compareceu, onAlternarPresenca}){
                 
             </ul>
             {isModalOpen && (
-                <EnvioManual aluno={alunos} onClose={() => setIsModalOpen(false)} />
+                <EnvioManual
+                    aluno={alunos}
+                    faltouHoje={!compareceu}
+                    onClose={() => setIsModalOpen(false)}
+                />
             )}
             
         </>
