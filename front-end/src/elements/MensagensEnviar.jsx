@@ -45,9 +45,9 @@ export function MensagensEnviar({ aluno }){
         )
     }
 
-    return (
+    /*return (
         <p className="msg-0">
             Olá, {nomeResponsavel}. Esta é uma mensagem do(a) professor(a) de {aluno.nome} sobre o acompanhamento escolar do(a) aluno(a).
         </p>
-    )
+    )*/
 }
