@@ -1,4 +1,4 @@
-export function MensagensEnviar({ aluno }){
+export function MensagensEnviar({ aluno, faltouHoje = false }){
     if (!aluno) return null
 
     const faltas = Number(aluno.faltas)
@@ -36,7 +36,7 @@ export function MensagensEnviar({ aluno }){
         )
     }
 
-    if (faltas >= 1) {
+    if (faltas >= 1 || faltouHoje) {
         return (
             <p className="msg-1-2">
                 Olá, {nomeResponsavel}. Notamos que o(a) aluno(a) {aluno.nome} faltou à aula sem justificativa. Caso haja uma justificativa para o não comparecimento,
